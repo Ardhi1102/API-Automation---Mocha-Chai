@@ -1,0 +1,10 @@
+{
+  "email": "sample@ex.com",
+  "password": "123adsfadf@",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMzlhMjkwLTM4NzUtNDg2Yy1hNDI2LTBlM2RmNDNlNjZkOCIsImNvbXBhbnlJZCI6IjM3NTY2MDQ4LTA5ZTgtNGI3NS1iYmZjLTBhZTUwZmVjNzYwZSIsImlhdCI6MTcwNzU4NDc0NX0.J7EbGkZVAGTDJB2Fq691hsLOV0CcVSIbcNdq-JCWCnE",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMzlhMjkwLTM4NzUtNDg2Yy1hNDI2LTBlM2RmNDNlNjZkOCIsImNvbXBhbnlJZCI6IjM3NTY2MDQ4LTA5ZTgtNGI3NS1iYmZjLTBhZTUwZmVjNzYwZSIsImlhdCI6MTcwNzU4NDc0NX0.2FbVDLZ2-2svvvp9_xacaaIzq4NhsUCyQaiLB7DVaTE",
+  "categoryId": "991d11a9-4615-4fa8-9149-1d9a55293d29",
+  "categoryName": "makanan ringan",
+  "unitId": "9c35cc28-f779-4a44-82a7-a38540b017ed",
+  "unitName": "gram"
+}
