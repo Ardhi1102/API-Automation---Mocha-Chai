@@ -6,5 +6,10 @@
   "categoryId": "7e915cef-a16b-4a3f-a617-6151d5a789e3",
   "categoryName": "makanan ringan",
   "customerId": "3ca8de7e-096c-464b-bbbf-5e10157c4471",
-  "customerName": "Budi"
+  "customerName": "Budi",
+  "unitId": "adcf7481-1167-49b1-99c2-07feffdc1a81",
+  "unitName": "gram",
+  "userId": "c6738d0b-1034-4f1a-9087-b093d7fb66cb",
+  "userName": "Kasir Serbaguna 123",
+  "userEmail": "kasirserbaguna123@gmail.com"
 }

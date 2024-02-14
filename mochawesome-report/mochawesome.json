@@ -1,0 +1,401 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 8,
+    "passes": 1,
+    "pending": 0,
+    "failures": 7,
+    "start": "2024-02-14T05:49:25.339Z",
+    "end": "2024-02-14T05:49:27.649Z",
+    "duration": 2310,
+    "testsRegistered": 8,
+    "passPercent": 12.5,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fe22acc9-c99b-4397-8ccb-93cca33c3c77",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fe92e649-f6cf-41a0-be97-e7aeedf675af",
+          "title": "Login",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\1.Login.js",
+          "file": "\\api\\1.Login.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login successful with valid data",
+              "fullTitle": "Login Login successful with valid data",
+              "timedOut": false,
+              "duration": 1576,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/authentications\") // HTTP method dan endpoint\n    .set(\"Content-Type\", \"application/json\")\n    .send({\n        email: variable.email,\n        password: variable.password\n    });\nexpect(response.status).to.eql(201)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('Authentication berhasil ditambahkan')\n// save variable\nvariable['accessToken'] = response.body.data.accessToken\nvariable['refreshToken'] = response.body.data.refreshToken\nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});",
+              "err": {},
+              "uuid": "6541217d-7a16-4419-b2bb-4b7fcdbf746c",
+              "parentUUID": "fe92e649-f6cf-41a0-be97-e7aeedf675af",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6541217d-7a16-4419-b2bb-4b7fcdbf746c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1576,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f108b6db-1950-4a7e-b65b-f878da0ae9bf",
+          "title": "Add Category",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Categories.js",
+          "file": "\\api\\Categories.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add category successful",
+              "fullTitle": "Add Category Add category successful",
+              "timedOut": false,
+              "duration": 99,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(`/categories`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    .send({\n        name: vCategories.name,\n        description: vCategories.description\n    });\n// save variable\nvariable['categoryId'] = response.body.data.categoryId\nvariable['categoryName'] = response.body.data.name\nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(201)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('Category berhasil ditambahkan')\nexpect(response.body.data.categoryId).to.eql(variable.categoryId)\nexpect(response.body.data.name).to.eql(variable.categoryName)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'categoryId')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'categoryId')\n    at Context.<anonymous> (api\\Categories.js:19:53)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "60ba3443-913d-48c0-bfb0-a1f4d77542f8",
+              "parentUUID": "f108b6db-1950-4a7e-b65b-f878da0ae9bf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "60ba3443-913d-48c0-bfb0-a1f4d77542f8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 99,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "08996463-2f3d-49a0-befc-8fca50a47249",
+          "title": "Add Customer",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Customers.js",
+          "file": "\\api\\Customers.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add customer successful",
+              "fullTitle": "Add Customer Add customer successful",
+              "timedOut": false,
+              "duration": 98,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(`/customers`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    .send({\n        name: vCustomers.name,\n        phone: vCustomers.phone,\n        address: vCustomers.address,\n        description: vCustomers.description\n    });\n// save variable\nvariable['customerId'] = response.body.data.customerId\nvariable['customerName'] = response.body.data.name\nfs.writeFileSync('./variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(201)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('Customer berhasil ditambahkan')\nexpect(response.body.data.customerId).to.eql(variable.customerId)\nexpect(response.body.data.name).to.eql(variable.customerName)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'customerId')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'customerId')\n    at Context.<anonymous> (api\\Customers.js:20:53)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "b4e0f3ac-4b83-478f-948c-bfd3a197d360",
+              "parentUUID": "08996463-2f3d-49a0-befc-8fca50a47249",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b4e0f3ac-4b83-478f-948c-bfd3a197d360"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 98,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a1dc5685-d640-4eab-8b85-3194a0ee6fba",
+          "title": "Add Unit",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Units.js",
+          "file": "\\api\\Units.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add unit successful",
+              "fullTitle": "Add Unit Add unit successful",
+              "timedOut": false,
+              "duration": 94,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(`/units`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    .send({\n        name: vUnit.name,\n        description: vUnit.description\n    })\n// save variable\nvariable['unitId'] = response.body.data.unitId\nvariable['unitName'] = response.body.data.name\nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(201)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('Unit berhasil ditambahkan')\nexpect(response.body.data.unitId).to.eql(variable.unitId)\nexpect(response.body.data.name).to.eql(variable.unitName)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'unitId')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'unitId')\n    at Context.<anonymous> (api\\Units.js:18:49)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "1449516f-a416-463f-b21f-468e1c6611ff",
+              "parentUUID": "a1dc5685-d640-4eab-8b85-3194a0ee6fba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1449516f-a416-463f-b21f-468e1c6611ff"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 94,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f4c1e46f-3798-4c10-9fb5-db07a5936111",
+          "title": "Create User",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Users.js",
+          "file": "\\api\\Users.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create user successful",
+              "fullTitle": "Create User Create user successful",
+              "timedOut": false,
+              "duration": 106,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/users\") // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    .send({\n        name: vUsers.name,\n        email: vUsers.email,\n        password: vUsers.password\n    });\n// save variable\nvariable['userId'] = response.body.data.userId\nvariable['userName'] = response.body.data.name\nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(201)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('User berhasil ditambahkan')\nexpect(response.body.data.userId).to.eql(variable.userId)\nexpect(response.body.data.name).to.eql(variable.userName)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'userId')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'userId')\n    at Context.<anonymous> (api\\Users.js:19:49)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "57f79241-a897-45be-8b66-cd454b2d418c",
+              "parentUUID": "f4c1e46f-3798-4c10-9fb5-db07a5936111",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "57f79241-a897-45be-8b66-cd454b2d418c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 106,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "97137c83-06ca-40f1-9218-c0cdae6ed845",
+          "title": "Get User Detail",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Users.js",
+          "file": "\\api\\Users.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get user detail successful",
+              "fullTitle": "Get User Detail Get user detail successful",
+              "timedOut": false,
+              "duration": 102,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(`/users/${variable.userId}`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\nexpect(response.status).to.eql(200)\nexpect(response.body.status).to.eql('success')",
+              "err": {
+                "message": "AssertionError: expected 401 to deeply equal 200",
+                "estack": "AssertionError: expected 401 to deeply equal 200\n    at Context.<anonymous> (api\\Users.js:39:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 401\n+ 200\n"
+              },
+              "uuid": "76c5d563-6ff9-4a9a-8d4d-f5de7f3c516d",
+              "parentUUID": "97137c83-06ca-40f1-9218-c0cdae6ed845",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "76c5d563-6ff9-4a9a-8d4d-f5de7f3c516d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 102,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6ab41cbe-414a-4307-b2d9-d536733d8917",
+          "title": "Update User",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Users.js",
+          "file": "\\api\\Users.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Update user successful",
+              "fullTitle": "Update User Update user successful",
+              "timedOut": false,
+              "duration": 99,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .put(`/users/${variable.userId}`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    .send({\n        \"name\": \"Kasir Serbaguna 123\",\n        \"email\": \"kasirserbaguna123@gmail.com\"\n    });\n// update variable\nvariable['userName'] = response.body.data.name\nvariable['userEmail'] = \"kasirserbaguna123@gmail.com\"\nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(200)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('User berhasil diupdate')\nexpect(response.body.data.name).to.eql(variable.userName)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'name')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'name')\n    at Context.<anonymous> (api\\Users.js:54:51)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "b7d40bd5-4909-4f79-8b3f-4b13024e0c9b",
+              "parentUUID": "6ab41cbe-414a-4307-b2d9-d536733d8917",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b7d40bd5-4909-4f79-8b3f-4b13024e0c9b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 99,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "58e443b2-a17e-497f-9ed0-3d131dd23454",
+          "title": "Delete User",
+          "fullFile": "C:\\Users\\User\\API-Automation---Mocha-Chai\\api\\Users.js",
+          "file": "\\api\\Users.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete user successful",
+              "fullTitle": "Delete User Delete user successful",
+              "timedOut": false,
+              "duration": 98,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .delete(`/users/${variable.userId}`) // HTTP method dan endpoint\n    .set('Authorization', `Bearer ${variable.accessToken}`)\n    \nfs.writeFileSync('data/jsonResponse/variables.json', JSON.stringify(variable, null, 2), err => {\n    if (err) {\n        console.log(err);\n    }\n});\nexpect(response.status).to.eql(200)\nexpect(response.body.status).to.eql('success')\nexpect(response.body.message).to.eql('User berhasil dihapus')",
+              "err": {
+                "message": "AssertionError: expected 401 to deeply equal 200",
+                "estack": "AssertionError: expected 401 to deeply equal 200\n    at Context.<anonymous> (api\\Users.js:79:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 401\n+ 200\n"
+              },
+              "uuid": "57dced02-d2d4-433e-a6c6-bbfdf93279e3",
+              "parentUUID": "58e443b2-a17e-497f-9ed0-3d131dd23454",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "57dced02-d2d4-433e-a6c6-bbfdf93279e3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 98,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.3.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

@@ -2,7 +2,8 @@ url = "https://kasir-api.belajarqa.com"
 const request = require("supertest")(url)
 const expect = require("chai").expect; // assertion library
 const fs = require("fs"); // importing the fs module
-const variable = require('./variables.json'); // for reading json file
+const variable = require('../data/jsonResponse/variables.json'); // for reading json file
+const vCustomers = require('../data/jsonBody/Add Customers.json')
 
 describe("Add Customer", function(){
     it("Add customer successful", async function() { 
@@ -10,10 +11,10 @@ describe("Add Customer", function(){
             .post(`/customers`) // HTTP method dan endpoint
             .set('Authorization', `Bearer ${variable.accessToken}`)
             .send({
-                "name": "Budi",
-                "phone": "081234567890",
-                "address": "Bandoeng",
-                "description": "Budi anak Pak Edi"
+                name: vCustomers.name,
+                phone: vCustomers.phone,
+                address: vCustomers.address,
+                description: vCustomers.description
             });
         // save variable
         variable['customerId'] = response.body.data.customerId
