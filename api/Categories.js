@@ -6,7 +6,7 @@ const variable = require('../data/jsonResponse/variables.json'); // for reading 
 const vCategories = require('../data/jsonBody/Add Categories.json')
 
 
-describe("Add Category", function(){
+describe("Category", function(){
     it("Add category successful", async function() { 
         const response = await request
             .post(`/categories`) // HTTP method dan endpoint

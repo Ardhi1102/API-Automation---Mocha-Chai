@@ -5,7 +5,7 @@ const fs = require("fs"); // importing the fs module
 const variable = require('../data/jsonResponse/variables.json'); // for reading json file
 const vUsers = require('../data/jsonBody/Add User.json')
 
-describe("Create User", function(){
+describe("User", function(){
     it("Create user successful", async function() {
         const response = await request
             .post("/users") // HTTP method dan endpoint
