@@ -3,13 +3,13 @@
   "password": "123adsfadf@",
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMzlhMjkwLTM4NzUtNDg2Yy1hNDI2LTBlM2RmNDNlNjZkOCIsImNvbXBhbnlJZCI6IjM3NTY2MDQ4LTA5ZTgtNGI3NS1iYmZjLTBhZTUwZmVjNzYwZSIsImlhdCI6MTcwNzg4OTk3NH0.t4d-Hg0O9ASohx5NYBc-Jr6Vc2pTVrtncAwOBMUqnB8",
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMzlhMjkwLTM4NzUtNDg2Yy1hNDI2LTBlM2RmNDNlNjZkOCIsImNvbXBhbnlJZCI6IjM3NTY2MDQ4LTA5ZTgtNGI3NS1iYmZjLTBhZTUwZmVjNzYwZSIsImlhdCI6MTcwNzg4OTk3NH0.MgoqBbcOwIYxDrHgRKy3wY9dZjrVUJprC1_6OiMLuAs",
-  "categoryId": "7e915cef-a16b-4a3f-a617-6151d5a789e3",
+  "categoryId": "99849290-e4d5-46d2-aa34-c40f24ff3524",
   "categoryName": "makanan ringan",
-  "customerId": "3ca8de7e-096c-464b-bbbf-5e10157c4471",
+  "customerId": "97428fa1-5c88-4e88-8346-1239370ae8bc",
   "customerName": "Budi",
-  "unitId": "adcf7481-1167-49b1-99c2-07feffdc1a81",
+  "unitId": "044a4e38-e617-4b9f-aaa1-b3475d326793",
   "unitName": "gram",
-  "userId": "c6738d0b-1034-4f1a-9087-b093d7fb66cb",
+  "userId": "84610906-3f9c-48db-9b19-c627eef2dfc5",
   "userName": "Kasir Serbaguna 123",
   "userEmail": "kasirserbaguna123@gmail.com"
 }
